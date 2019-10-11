@@ -12,9 +12,8 @@
 			$this->RegisterPropertyBoolean('SimultaneousSwitching', false);
 			
 			//Variables
-			$this->RegisterVariableBoolean('Active', $this->Translate('Christmas Mode'), '~Switch');
+			$this->RegisterVariableBoolean('Active', $this->Translate('Active'), '~Switch');
 			$this->EnableAction('Active');
-			$this->RegisterVariableInteger('ColorDisplay', 'Great Color!', '~HexColor');
 
 			//Timer
 			$this->RegisterTimer('ChangeTimer', 0, 'ZB_ChangeLight($_IPS[\'TARGET\']);');

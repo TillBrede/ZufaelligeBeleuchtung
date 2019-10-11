@@ -1,8 +1,13 @@
 {
     "translations": {
         "de": {
-            "Translation 1": "Übersetzung 1",
-            "Translation 2": "Übersetzung 2"
+            "Color Variables": "Farbvariablen",
+            "Colors": "Farben",
+            "Color": "Farbe",
+            "Change Interval": "Änderungsintervall",
+            "Seconds": "Sekunden",
+            "Simultaneous Switching": "Gleichzeitiges Schalten",
+            "Active": "Aktiv"
         }
     }
 }

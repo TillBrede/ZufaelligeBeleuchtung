@@ -3,13 +3,13 @@
         {
             "type": "List",
             "name": "Targets",
-            "caption": "VariableIDs",
+            "caption": "Color Variables",
             "add": true,
             "delete": true,
             "columns": [
                 {
                     "caption": "Variable",
-                    "name": "VariablID",
+                    "name": "VariableID",
                     "width": "auto",
                     "add": 0,
                     "edit": {
