@@ -18,6 +18,9 @@
 
 			//Timer
 			$this->RegisterTimer('ChangeTimer', 0, 'ZB_ChangeLight($_IPS[\'TARGET\']);');
+
+			//Attribute
+			$this->RegisterAttributeString('BaseValues', '[]');
 		}
 
 		public function Destroy(){
