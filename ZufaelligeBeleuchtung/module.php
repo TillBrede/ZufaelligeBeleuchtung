@@ -39,7 +39,6 @@
 
 			//Adding references
 			$targetList = json_decode($this->ReadPropertyString('Targets'), true);
-			$targetIDs = [];
 			foreach ($targetList as $line) {
 				$this->RegisterReference($line['VariableID']);
 			}
