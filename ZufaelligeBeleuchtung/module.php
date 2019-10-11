@@ -45,6 +45,14 @@
 				$this->RegisterReference($line['VariableID']);
 			}
 
+			if(GetValue($this->GetIDForIdent('Active'))) {
+				SetValue($this->GetIDForIdent('Active'), GetValue($this->GetIDForIdent('Active')));
+				$this->ChangeLight();
+				$this->SetTimerInterval('ChangeTimer', $this->ReadPropertyInteger('Interval') * 1000);
+			} else {
+				SetValue($this->GetIDForIdent('Active'), GetValue($this->GetIDForIdent('Active')));
+				$this->SetTimerInterval('ChangeTimer', 0);
+			}
 		}
 
 		public function RequestAction($Ident, $Value)
