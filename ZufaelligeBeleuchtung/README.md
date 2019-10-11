@@ -33,11 +33,11 @@ Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschienden
 
 __Konfigurationsseite__:
 
-Name     | Beschreibung
--------- | ------------------
-Farbvariablen | Liste mit Farbvariablen, welche geschaltet werden sollen
-Farben | Farben von denen eine zufällig zum Schalten ausgewählt wird
-Änderungsintervall | Abstand zwischen den einzelenen Schaltungen in Sekunden
+Name                    | Beschreibung
+----------------------- | ------------------
+Farbvariablen           | Liste mit Farbvariablen, welche geschaltet werden sollen
+Farben                  | Farben von denen eine zufällig zum Schalten ausgewählt wird
+Änderungsintervall      | Abstand zwischen den einzelenen Schaltungen in Sekunden
 Gleichzeitiges Schalten | legt fest ob alle Farbvariablen auf die gleiche Farbe gesetzt werden oder auf verschiedene
 
 ### 5. Statusvariablen und Profile
