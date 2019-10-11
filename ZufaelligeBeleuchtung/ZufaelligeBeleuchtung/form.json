@@ -1,0 +1,45 @@
+{
+    "elements": [
+        {
+            "type": "List",
+            "name": "Targets",
+            "caption": "VariableIDs",
+            "add": true,
+            "delete": true,
+            "columns": [
+                {
+                    "caption": "Variable",
+                    "name": "VariablID",
+                    "width": "auto",
+                    "add": 0,
+                    "edit": {
+                        "type": "SelectVariable"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "List",
+            "name": "SwitchColors",
+            "caption": "Colors",
+            "add": true,
+            "delete": true,
+            "columns": [
+                {
+                    "caption": "Color",
+                    "name": "Color",
+                    "width": "auto",
+                    "add": 0,
+                    "edit": {
+                        "type": "SelectColor"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "Interval",
+            "caption": "Change Interval"
+        }
+    ]
+}

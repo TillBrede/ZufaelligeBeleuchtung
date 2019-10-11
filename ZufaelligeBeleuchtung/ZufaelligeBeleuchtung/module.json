@@ -1,0 +1,14 @@
+{
+    "id": "{4A597AE3-678D-D56F-4598-2D83017AE912}",
+    "name": "ZufaelligeBeleuchtung",
+    "type": 3,
+    "vendor": "",
+    "aliases": [
+        "ZufälligeBeleuchtung"
+    ],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "ZB",
+    "url": ""
+}
