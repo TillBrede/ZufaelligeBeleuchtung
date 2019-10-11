@@ -1,5 +1,5 @@
 # ZufaelligeBeleuchtung
-Beschreibung des Moduls.
+Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschiendenen Farben zu schalten.
 
 ### Inhaltsverzeichnis
 
@@ -13,7 +13,10 @@ Beschreibung des Moduls.
 
 ### 1. Funktionsumfang
 
-*
+* Farbvariablen können in einer Liste hinzugefügt werden
+* Eine Liste mit Farben aus denen gewählt wird, welche erweitert werden kann
+* Wenn das Modul deaktiviert wird, werden die ausgewählten Farbvariablen auf den Wert vor der Aktivierung gesetzt 
+* Einstellung des Intervalls in dem die Farben gewechselt werden sollen
 
 ### 2. Vorraussetzungen
 
@@ -21,19 +24,21 @@ Beschreibung des Moduls.
 
 ### 3. Software-Installation
 
-* Über den Module Store das 'ZufaelligeBeleuchtung'-Modul installieren.
-* Alternativ über das Module Control folgende URL hinzufügen
+* Über den Module Store das 'ZufälligeBeleuchtung'-Modul installieren.
+* Alternativ über das Module Control folgende URL hinzufügen `https://github.com/symcon/ZufaelligeBeleuchtung`
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
- Unter 'Instanz hinzufügen' ist das 'ZufaelligeBeleuchtung'-Modul unter dem Hersteller '(Gerät)' aufgeführt.
+ Unter 'Instanz hinzufügen' ist das 'ZufälligeBeleuchtung'-Modul unter dem Hersteller '(Gerät)' aufgeführt.
 
 __Konfigurationsseite__:
 
 Name     | Beschreibung
 -------- | ------------------
-         |
-         |
+Farbvariablen | Liste mit Farbvariablen, welche geschaltet werden sollen
+Farben | Farben von denen eine zufällig zum Schalten ausgewählt wird
+Änderungsintervall | Abstand zwischen den einzelenen Schaltungen in Sekunden
+Gleichzeitiges Schalten | legt fest ob alle Farbvariablen auf die gleiche Farbe gesetzt werden oder auf verschiedene
 
 ### 5. Statusvariablen und Profile
 
@@ -41,26 +46,23 @@ Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzeln
 
 #### Statusvariablen
 
-Name   | Typ     | Beschreibung
------- | ------- | ------------
-       |         |
-       |         |
+Name  | Typ     | Beschreibung
+----- | ------- | ----------------
+Aktiv | Boolean | Schaltet das Modul an oder aus
 
 #### Profile
 
-Name   | Typ
------- | -------
-       |
-       |
+Es werden keine weiteren Profile erstellt.
+
 
 ### 6. WebFront
 
-Die Funktionalität, die das Modul im WebFront bietet.
+Das Modul kann hier De-/Aktiviert werden.
 
 ### 7. PHP-Befehlsreferenze
 
-`boolean ZB_BeispielFunktion(integer $InstanzID);`
-Erklärung der Funktion.
+`boolean ZB_ChangeLight(integer $InstanzID);`
+Wählt zufällige Farben aus und setzt die ausgewählten Variablen auf diese
 
 Beispiel:
-`ZB_BeispielFunktion(12345);`
+`ZB_ChangeLight(12345);`
