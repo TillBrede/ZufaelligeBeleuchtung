@@ -37,9 +37,20 @@
             ]
         },
         {
-            "type": "NumberSpinner",
-            "name": "Interval",
-            "caption": "Change Interval"
+            "type": "RowLayout",
+            "items": [
+                {
+                    "type": "NumberSpinner",
+                    "name": "Interval",
+                    "caption": "Change Interval",
+                    "suffix": "Seconds"
+                },
+                {
+                    "type": "CheckBox",
+                    "name": "SimultaneousSwitching",
+                    "caption": "Simultaneous Switching"
+                }
+            ]
         }
     ]
 }

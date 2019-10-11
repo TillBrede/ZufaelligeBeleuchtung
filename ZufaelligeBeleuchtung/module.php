@@ -70,8 +70,25 @@
 			foreach ($colorList as $line) {
 				$colorValues[] = $line['Color'];
 			}
-		
-			$colorIndex = mt_rand(0, count($colorValues) - 1);
+			
+			if ($this->ReadPropertyBoolean('SimultaneousSwitching')) {
+				$colorIndex = random_int(0, count($colorValues) - 1);
+				while ($colorValues[$colorIndex] == GetValue($targetIDs[0])) {
+					$colorIndex = random_int(0, count($colorValues) - 1);
+				}
+				foreach($targetIDs as $targetID) {
+					RequestAction($targetID, $colorValues[$colorIndex]);
+				}	
+			} else {
+				foreach($targetIDs as $targetID) {
+					$colorIndex = random_int(0, count($colorValues) - 1);
+					while ($colorValues[$colorIndex] == GetValue($targetID)) {
+						$colorIndex = random_int(0, count($colorValues) - 1);
+					}
+					RequestAction($targetID, $colorValues[$colorIndex]);
+				}
+			}		
+		}
 
 			SetValue($this->GetIDForIdent('ColorDisplay'), $colorValues[$colorIndex]);
 		
