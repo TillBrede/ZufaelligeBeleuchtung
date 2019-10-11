@@ -9,6 +9,7 @@
 			$this->RegisterPropertyString('Targets', '[]');
 			$this->RegisterPropertyString('SwitchColors', '[{"Color":242944}, {"Color":16711680}, {"Color":16777215}]');
 			$this->RegisterPropertyInteger('Interval', 1);
+			$this->RegisterPropertyBoolean('SimultaneousSwitching', false);
 			
 			//Variables
 			$this->RegisterVariableBoolean('Active', $this->Translate('Christmas Mode'), '~Switch');
