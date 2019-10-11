@@ -59,10 +59,12 @@
 		{
 			if($Active) {
 				SetValue($this->GetIDForIdent('Active'), $Active);
+				$this->SaveBaseValues();
 				$this->ChangeLight();
-				$this->SetTimerInterval('ChangeTimer', 1000);
+				$this->SetTimerInterval('ChangeTimer', $this->ReadPropertyInteger('Interval') * 1000);
 			} else {
 				SetValue($this->GetIDForIdent('Active'), $Active);
+				$this->ResetValues();
 				$this->SetTimerInterval('ChangeTimer', 0);
 			}
 			
@@ -103,9 +105,26 @@
 			}		
 		}
 
-			SetValue($this->GetIDForIdent('ColorDisplay'), $colorValues[$colorIndex]);
-		
-			$this->SendDebug('Color Change', 'Success', 0);
+		private function SaveBaseValues()
+		{
+			//Creating array with targetIDs
+			$this->WriteAttributeString('BaseValues', '[]');
+			$targetList = json_decode($this->ReadPropertyString('Targets'), true);
+			$baseValues = [];
+			foreach ($targetList as $line) {
+				$baseValues[$line['VariableID']] = GetValue($line['VariableID']);
+			}
+			$this->WriteAttributeString('BaseValues', json_encode($baseValues));
+		}
+
+		private function ResetValues()
+		{
+			//Creating array with targetIDs
+			$targetList = json_decode($this->ReadPropertyString('Targets'), true);
+			$baseValues = json_decode($this->ReadAttributeString('BaseValues'), true);
+			foreach ($targetList as $line) {
+				RequestAction($line['VariableID'], $baseValues[$line['VariableID']]);
+			}
 		}
 
 	}
