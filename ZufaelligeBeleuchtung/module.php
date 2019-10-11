@@ -29,6 +29,18 @@
 		public function ApplyChanges() {
 			//Never delete this line!
 			parent::ApplyChanges();
+			
+			//Deleting references in order to re-add them
+			foreach ($this->GetReferenceList() as $referenceID) {
+				$this->UnregisterReference($referenceID);
+			}
+
+			//Adding references
+			$targetList = json_decode($this->ReadPropertyString('Targets'), true);
+			$targetIDs = [];
+			foreach ($targetList as $line) {
+				$this->RegisterReference($line['VariableID']);
+			}
 
 		}
 
