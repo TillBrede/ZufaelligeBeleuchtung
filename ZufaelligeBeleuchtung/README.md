@@ -1,5 +1,5 @@
-# ZufaelligeBeleuchtung
-Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschiendenen Farben zu schalten.
+# Zufaellige Beleuchtung
+Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschiedenen Farben zu schalten.
 
 ### Inhaltsverzeichnis
 
@@ -24,12 +24,12 @@ Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschienden
 
 ### 3. Software-Installation
 
-* Über den Module Store das 'ZufälligeBeleuchtung'-Modul installieren.
+* Über den Module Store das 'Zufällige Beleuchtung'-Modul installieren.
 * Alternativ über das Module Control folgende URL hinzufügen `https://github.com/symcon/ZufaelligeBeleuchtung`
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
- Unter 'Instanz hinzufügen' ist das 'ZufälligeBeleuchtung'-Modul unter dem Hersteller '(Gerät)' aufgeführt.
+ Unter 'Instanz hinzufügen' kann das 'Zufällige Beleuchtung'-Modul mithilfe der Schnellsuche einfach gefunden werden.
 
 __Konfigurationsseite__:
 
