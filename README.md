@@ -7,4 +7,4 @@
 Folgende Module beinhaltet das ZufälligeBeleuchtung Repository:
 
 - __Zufaellige Beleuchtung__ ([Dokumentation](ZufaelligeBeleuchtung))
-	Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschiendenen Farben zu schalten.
+	Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschiedenen Farben zu schalten.
