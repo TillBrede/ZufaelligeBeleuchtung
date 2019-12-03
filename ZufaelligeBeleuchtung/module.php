@@ -36,6 +36,11 @@ class ZufaelligeBeleuchtung extends IPSModule
         //Never delete this line!
         parent::ApplyChanges();
 
+        $this->SetStatus(102);
+        if (GetValue($this->GetIDForIdent('Active'))) {
+            $this->ChangeLight();
+        }               
+
         //Deleting references in order to re-add them
         foreach ($this->GetReferenceList() as $referenceID) {
             $this->UnregisterReference($referenceID);
@@ -84,6 +89,10 @@ class ZufaelligeBeleuchtung extends IPSModule
 
     public function ChangeLight()
     {
+
+        if ($this->GetStatus() != 102) {
+            return;
+        }
         //Creating array with targetIDs
         $targetList = json_decode($this->ReadPropertyString('Targets'), true);
         $targetIDs = [];
@@ -93,25 +102,29 @@ class ZufaelligeBeleuchtung extends IPSModule
 
         //Creating array witch colorValues
         $colorList = json_decode($this->ReadPropertyString('SwitchColors'), true);
-        $colorValues = [];
+        $colorValueList = [];
         foreach ($colorList as $line) {
-            $colorValues[] = $line['Color'];
+            $colorValueList[] = $line['Color'];
         }
 
         if ($this->ReadPropertyBoolean('SimultaneousSwitching')) {
-            $colorIndex = random_int(0, count($colorValues) - 1);
-            while ($colorValues[$colorIndex] == GetValue($targetIDs[0])) {
-                $colorIndex = random_int(0, count($colorValues) - 1);
-            }
             foreach ($targetIDs as $targetID) {
+                $colorValues = $this->GetNewColor(GetValue($targetID), $colorValueList);
+                if (empty($colorValues)) {
+                    $this->SetStatus(200); 
+                    return;
+                }
+                $colorIndex = random_int(0, count($colorValues) - 1);
                 RequestAction($targetID, $colorValues[$colorIndex]);
             }
         } else {
             foreach ($targetIDs as $targetID) {
-                $colorIndex = random_int(0, count($colorValues) - 1);
-                while ($colorValues[$colorIndex] == GetValue($targetID)) {
-                    $colorIndex = random_int(0, count($colorValues) - 1);
+                $colorValues = $this->GetNewColor(GetValue($targetID), $colorValueList);
+                if (empty($colorValues)) {
+                    $this->SetStatus(200); 
+                    return;
                 }
+                $colorIndex = random_int(0, count($colorValues) - 1);
                 RequestAction($targetID, $colorValues[$colorIndex]);
             }
         }
@@ -136,6 +149,18 @@ class ZufaelligeBeleuchtung extends IPSModule
         foreach ($targetList as $line) {
             RequestAction($line['VariableID'], $baseValues[$line['VariableID']]);
         }
+    }
+
+    private function GetNewColor($currentValue, $colorList)
+    {
+        $newColors = [];
+        foreach ($colorList as $color) {
+            if ($currentValue != $color) {
+                $newColors[] = $color;
+            }
+        }
+        return $newColors;
+
     }
 }
 
