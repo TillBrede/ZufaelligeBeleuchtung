@@ -120,7 +120,6 @@ class ZufaelligeBeleuchtung extends IPSModule
     private function SaveBaseValues()
     {
         //Creating array with targetIDs
-        $this->WriteAttributeString('BaseValues', '[]');
         $targetList = json_decode($this->ReadPropertyString('Targets'), true);
         $baseValues = [];
         foreach ($targetList as $line) {
