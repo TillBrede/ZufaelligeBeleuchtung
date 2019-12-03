@@ -52,6 +52,16 @@
                     "caption": "Simultaneous Switching"
                 }
             ]
+        },
+        {
+            "type": "TestCenter"
+        }
+    ],
+    "status": [
+        {
+            "code": 200,
+            "icon": "error",
+            "caption": "There must be more then one color!"
         }
     ]
 }
