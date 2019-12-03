@@ -39,7 +39,7 @@ class ZufaelligeBeleuchtung extends IPSModule
         $this->SetStatus(102);
         if (GetValue($this->GetIDForIdent('Active'))) {
             $this->ChangeLight();
-        }               
+        }
 
         //Deleting references in order to re-add them
         foreach ($this->GetReferenceList() as $referenceID) {
@@ -89,7 +89,6 @@ class ZufaelligeBeleuchtung extends IPSModule
 
     public function ChangeLight()
     {
-
         if ($this->GetStatus() != 102) {
             return;
         }
@@ -111,7 +110,7 @@ class ZufaelligeBeleuchtung extends IPSModule
             foreach ($targetIDs as $targetID) {
                 $colorValues = $this->GetNewColor(GetValue($targetID), $colorValueList);
                 if (empty($colorValues)) {
-                    $this->SetStatus(200); 
+                    $this->SetStatus(200);
                     return;
                 }
                 $colorIndex = random_int(0, count($colorValues) - 1);
@@ -121,7 +120,7 @@ class ZufaelligeBeleuchtung extends IPSModule
             foreach ($targetIDs as $targetID) {
                 $colorValues = $this->GetNewColor(GetValue($targetID), $colorValueList);
                 if (empty($colorValues)) {
-                    $this->SetStatus(200); 
+                    $this->SetStatus(200);
                     return;
                 }
                 $colorIndex = random_int(0, count($colorValues) - 1);
@@ -160,7 +159,6 @@ class ZufaelligeBeleuchtung extends IPSModule
             }
         }
         return $newColors;
-
     }
 }
 
