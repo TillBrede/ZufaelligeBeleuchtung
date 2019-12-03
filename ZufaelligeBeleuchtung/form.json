@@ -29,9 +29,10 @@
                     "caption": "Color",
                     "name": "Color",
                     "width": "auto",
-                    "add": 0,
+                    "add": 3328428,
                     "edit": {
-                        "type": "SelectColor"
+                        "type": "SelectColor",
+                        "allowTransparent": false
                     }
                 }
             ]
