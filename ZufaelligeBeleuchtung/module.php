@@ -161,4 +161,3 @@ class ZufaelligeBeleuchtung extends IPSModule
         return $newColors;
     }
 }
-
