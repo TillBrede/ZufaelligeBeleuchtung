@@ -109,6 +109,9 @@ class ZufaelligeBeleuchtung extends IPSModule
         }
 
         if ($this->ReadPropertyBoolean('SimultaneousSwitching')) {
+            if (count($targetIDs) == 0) {
+                return;
+            }
             $colorValues = $this->GetNewColor(GetValue($targetIDs[0]), $colorValueList);
             if (empty($colorValues)) {
                 $this->SetStatus(200);
