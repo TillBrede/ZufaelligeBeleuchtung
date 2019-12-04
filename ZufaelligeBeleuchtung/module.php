@@ -36,6 +36,8 @@ class ZufaelligeBeleuchtung extends IPSModule
         //Never delete this line!
         parent::ApplyChanges();
 
+        $this->SaveBaseValues();
+        
         $this->SetStatus(102);
         if (GetValue($this->GetIDForIdent('Active'))) {
             $this->ChangeLight();
@@ -48,8 +50,8 @@ class ZufaelligeBeleuchtung extends IPSModule
 
         //Adding references
         $targetList = json_decode($this->ReadPropertyString('Targets'), true);
-        foreach ($targetList as $line) {
-            $this->RegisterReference($line['VariableID']);
+        foreach ($targetList as $target) {
+            $this->RegisterReference($target['VariableID']);
         }
 
         if (GetValue($this->GetIDForIdent('Active'))) {
@@ -95,25 +97,25 @@ class ZufaelligeBeleuchtung extends IPSModule
         //Creating array with targetIDs
         $targetList = json_decode($this->ReadPropertyString('Targets'), true);
         $targetIDs = [];
-        foreach ($targetList as $line) {
-            $targetIDs[] = $line['VariableID'];
+        foreach ($targetList as $target) {
+            $targetIDs[] = $target['VariableID'];
         }
 
         //Creating array witch colorValues
         $colorList = json_decode($this->ReadPropertyString('SwitchColors'), true);
         $colorValueList = [];
-        foreach ($colorList as $line) {
-            $colorValueList[] = $line['Color'];
+        foreach ($colorList as $target) {
+            $colorValueList[] = $target['Color'];
         }
 
         if ($this->ReadPropertyBoolean('SimultaneousSwitching')) {
-            foreach ($targetIDs as $targetID) {
-                $colorValues = $this->GetNewColor(GetValue($targetID), $colorValueList);
+            $colorValues = $this->GetNewColor(GetValue($targetIDs[0]), $colorValueList);
                 if (empty($colorValues)) {
                     $this->SetStatus(200);
                     return;
                 }
                 $colorIndex = random_int(0, count($colorValues) - 1);
+            foreach ($targetIDs as $targetID) {
                 RequestAction($targetID, $colorValues[$colorIndex]);
             }
         } else {
@@ -133,9 +135,15 @@ class ZufaelligeBeleuchtung extends IPSModule
     {
         //Creating array with targetIDs
         $targetList = json_decode($this->ReadPropertyString('Targets'), true);
+        $savedBaseValues = json_decode($this->ReadAttributeString('BaseValues'), true);
         $baseValues = [];
-        foreach ($targetList as $line) {
-            $baseValues[$line['VariableID']] = GetValue($line['VariableID']);
+        foreach ($targetList as $target) {
+            if (array_key_exists($target['VariableID'], $savedBaseValues)) {
+                $baseValues[$target['VariableID']] = $savedBaseValues[$target['VariableID']];
+            } else {
+                $baseValues[$target['VariableID']] = GetValue($target['VariableID']);
+            }
+            
         }
         $this->WriteAttributeString('BaseValues', json_encode($baseValues));
     }
@@ -145,8 +153,8 @@ class ZufaelligeBeleuchtung extends IPSModule
         //Creating array with targetIDs
         $targetList = json_decode($this->ReadPropertyString('Targets'), true);
         $baseValues = json_decode($this->ReadAttributeString('BaseValues'), true);
-        foreach ($targetList as $line) {
-            RequestAction($line['VariableID'], $baseValues[$line['VariableID']]);
+        foreach ($targetList as $target) {
+            RequestAction($target['VariableID'], $baseValues[$target['VariableID']]);
         }
     }
 
