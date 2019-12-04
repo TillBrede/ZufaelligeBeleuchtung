@@ -10,8 +10,6 @@ jobs:
  
     steps:
     - uses: actions/checkout@master
-      with:
-        submodules: true
 
     - name: Install latest PHPUnit
       run: wget https://phar.phpunit.de/phpunit.phar
