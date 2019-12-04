@@ -10,8 +10,9 @@ jobs:
  
     steps:
     - uses: actions/checkout@master
-      with:
-        submodules: true 
+      
+    - name: Checkout submodules
+      uses: textbook/git-checkout-submodule-action@2.0.0
 
     - name: Install latest PHPUnit
       run: wget https://phar.phpunit.de/phpunit.phar
