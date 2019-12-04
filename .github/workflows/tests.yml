@@ -9,11 +9,10 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
+      with:
+        submodules: true 
       
-    - name: Checkout submodules
-      uses: textbook/git-checkout-submodule-action@2.0.0
-
     - name: Install latest PHPUnit
       run: wget https://phar.phpunit.de/phpunit.phar
 
