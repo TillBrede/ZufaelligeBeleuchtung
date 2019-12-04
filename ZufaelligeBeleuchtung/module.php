@@ -37,7 +37,7 @@ class ZufaelligeBeleuchtung extends IPSModule
         parent::ApplyChanges();
 
         $this->SaveBaseValues();
-        
+
         $this->SetStatus(102);
         if (GetValue($this->GetIDForIdent('Active'))) {
             $this->ChangeLight();
@@ -110,11 +110,11 @@ class ZufaelligeBeleuchtung extends IPSModule
 
         if ($this->ReadPropertyBoolean('SimultaneousSwitching')) {
             $colorValues = $this->GetNewColor(GetValue($targetIDs[0]), $colorValueList);
-                if (empty($colorValues)) {
-                    $this->SetStatus(200);
-                    return;
-                }
-                $colorIndex = random_int(0, count($colorValues) - 1);
+            if (empty($colorValues)) {
+                $this->SetStatus(200);
+                return;
+            }
+            $colorIndex = random_int(0, count($colorValues) - 1);
             foreach ($targetIDs as $targetID) {
                 RequestAction($targetID, $colorValues[$colorIndex]);
             }
@@ -143,7 +143,6 @@ class ZufaelligeBeleuchtung extends IPSModule
             } else {
                 $baseValues[$target['VariableID']] = GetValue($target['VariableID']);
             }
-            
         }
         $this->WriteAttributeString('BaseValues', json_encode($baseValues));
     }
