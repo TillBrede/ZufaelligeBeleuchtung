@@ -29,7 +29,8 @@ Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschiedene
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
- Unter 'Instanz hinzufügen' kann das 'Zufällige Beleuchtung'-Modul mithilfe der Schnellsuche einfach gefunden werden.
+ Unter 'Instanz hinzufügen' kann das 'Zufällige Beleuchtung'-Modul mithilfe des Schnellfilters gefunden werden.
+    - Weitere Informationen zum Hinzufügen von Instanzen in der [Dokumentation der Instanzen](https://www.symcon.de/service/dokumentation/konzepte/instanzen/#Instanz_hinzufügen)
 
 __Konfigurationsseite__:
 
