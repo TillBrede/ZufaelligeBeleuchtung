@@ -18,7 +18,7 @@ Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschiedene
 * Wenn das Modul deaktiviert wird, werden die ausgewählten Farbvariablen auf den Wert vor der Aktivierung gesetzt 
 * Einstellung des Intervalls in dem die Farben gewechselt werden sollen
 
-### 2. Vorraussetzungen
+### 2. Voraussetzungen
 
 - IP-Symcon ab Version 5.0
 
