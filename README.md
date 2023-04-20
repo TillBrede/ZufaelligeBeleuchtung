@@ -6,5 +6,5 @@
 
 Folgende Module beinhaltet das ZufälligeBeleuchtung Repository:
 
-- __Zufaellige Beleuchtung__ ([Dokumentation](ZufaelligeBeleuchtung))
+- __Zufaellige Beleuchtung__ ([Dokumentation](https://www.symcon.de/de/service/dokumentation/modulreferenz/zufaellige-beleuchtung))
 	Das Modul ermöglicht es den Farbwert von Lampen zufällig zwischen verschiedenen Farben zu schalten.
