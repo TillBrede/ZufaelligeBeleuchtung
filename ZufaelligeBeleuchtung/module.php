@@ -67,25 +67,11 @@ class ZufaelligeBeleuchtung extends IPSModule
     public function RequestAction($Ident, $Value)
     {
         switch ($Ident) {
-                case 'Active':
-                    $this->SetActive($Value);
-                    break;
-                default:
-                    throw new Exception('Invalid ident');
-            }
-    }
-
-    private function SetActive($Active)
-    {
-        if ($Active) {
-            SetValue($this->GetIDForIdent('Active'), $Active);
-            $this->SaveBaseValues();
-            $this->ChangeLight();
-            $this->SetTimerInterval('ChangeTimer', $this->ReadPropertyInteger('Interval') * 1000);
-        } else {
-            SetValue($this->GetIDForIdent('Active'), $Active);
-            $this->ResetValues();
-            $this->SetTimerInterval('ChangeTimer', 0);
+            case 'Active':
+                $this->SetActive($Value);
+                break;
+            default:
+                throw new Exception('Invalid ident');
         }
     }
 
@@ -131,6 +117,20 @@ class ZufaelligeBeleuchtung extends IPSModule
                 $colorIndex = random_int(0, count($colorValues) - 1);
                 RequestAction($targetID, $colorValues[$colorIndex]);
             }
+        }
+    }
+
+    private function SetActive($Active)
+    {
+        if ($Active) {
+            SetValue($this->GetIDForIdent('Active'), $Active);
+            $this->SaveBaseValues();
+            $this->ChangeLight();
+            $this->SetTimerInterval('ChangeTimer', $this->ReadPropertyInteger('Interval') * 1000);
+        } else {
+            SetValue($this->GetIDForIdent('Active'), $Active);
+            $this->ResetValues();
+            $this->SetTimerInterval('ChangeTimer', 0);
         }
     }
 
