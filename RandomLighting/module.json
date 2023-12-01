@@ -1,14 +1,14 @@
 {
     "id": "{4A597AE3-678D-D56F-4598-2D83017AE912}",
-    "name": "ZufaelligeBeleuchtung",
+    "name": "RandomLighting",
     "type": 3,
     "vendor": "",
     "aliases": [
-        "Zufällige Beleuchtung"
+        "Random Lighting"
     ],
     "parentRequirements": [],
     "childRequirements": [],
     "implemented": [],
     "prefix": "ZB",
-    "url": "https://github.com/symcon/ZufaelligeBeleuchtung/tree/master/ZufaelligeBeleuchtung"
+    "url": "https://www.symcon.de/en/service/documentation/module-reference/random-lighting/"
 }
