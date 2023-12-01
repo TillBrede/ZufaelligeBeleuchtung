@@ -6,7 +6,7 @@
   </php>
   <source>
     <include>
-      <directory suffix=".php">../ZufaelligeBeleuchtung</directory>
+      <directory suffix=".php">../RandomLighting</directory>
     </include>
   </source>
 </phpunit>

@@ -1,0 +1,16 @@
+{
+    "translations": {
+        "de": {
+            "Color Variables": "Farbvariablen",
+            "Colors": "Farben",
+            "Color": "Farbe",
+            "Change Interval": "Änderungsintervall",
+            "Seconds": "Sekunden",
+            "Simultaneous Switching": "Gleichzeitiges Schalten",
+            "Active": "Aktiv",
+            "Random Lighting": "Zufällige Beleuchtung",
+            "https://www.symcon.de/en/service/documentation/module-reference/random-lighting/": "https://www.symcon.de/de/service/dokumentation/modulreferenz/zufaellige-beleuchtung/",
+            "RandomLighting": "ZufaelligeBeleuchtung"
+        }
+    }
+}

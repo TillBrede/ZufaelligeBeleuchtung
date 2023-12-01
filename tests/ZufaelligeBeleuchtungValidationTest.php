@@ -8,8 +8,8 @@ class ZufaelligeBeleuchtungValidationTest extends TestCaseSymconValidation
     {
         $this->validateLibrary(__DIR__ . '/..');
     }
-    public function testValidateZufaelligeBeleuchtungModule(): void
+    public function testValidateRandomLightingModule(): void
     {
-        $this->validateModule(__DIR__ . '/../ZufaelligeBeleuchtung');
+        $this->validateModule(__DIR__ . '/../RandomLighting');
     }
 }

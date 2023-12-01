@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-class ZufaelligeBeleuchtung extends IPSModule
+class RandomLighting extends IPSModule
 {
     public function Create()
     {
